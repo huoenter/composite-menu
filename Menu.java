@@ -1,8 +1,9 @@
 import java.util.Iterator;
+import java.util.List;
 import java.util.ArrayList;
 
 public class Menu extends MenuComponent {
-	ArrayList menuComponents = new ArrayList();
+	List<MenuComponent> menuComponents = new ArrayList<>();
 	String name;
 	String description;
   
@@ -20,7 +21,7 @@ public class Menu extends MenuComponent {
 	}
  
 	public MenuComponent getChild(int i) {
-		return (MenuComponent)menuComponents.get(i);
+		return menuComponents.get(i);
 	}
  
 	public String getName() {
@@ -36,10 +37,9 @@ public class Menu extends MenuComponent {
 		System.out.println(", " + getDescription());
 		System.out.println("---------------------");
   
-		Iterator iterator = menuComponents.iterator();
+		Iterator<MenuComponent> iterator = menuComponents.iterator();
 		while (iterator.hasNext()) {
-			MenuComponent menuComponent = 
-				(MenuComponent)iterator.next();
+			MenuComponent menuComponent = iterator.next();
 			menuComponent.print();
 		}
 	}
